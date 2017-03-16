@@ -1,0 +1,72 @@
+____________
+1. Two Sum
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+____________
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int l=nums.length;
+        int[] out=new int[2];
+        for (int i=0;i<l-1;i++){
+            for (int j=i+1;j<l;j++){
+                if(nums[i]+nums[j]==target){
+                    out[0]=i;
+                    out[1]=j;
+                }
+            }
+        }
+        return out;
+    }
+}
+
+____________
+2. Add Two Numbers
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+____________
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int digit1,digit2,sum,jin;
+        //the head
+        digit1=l1.val;
+        digit2=l2.val;
+        l1=l1.next;
+        l2=l2.next;
+        sum=digit1+digit2;
+        if(sum>9){jin=1;}else{jin=0;}
+        ListNode head=new ListNode(sum%10);
+        ListNode current=head;
+        //building up the return value
+        while(true){
+            if(l1==null && l2==null&&jin==0){break;}
+            if(l1==null){digit1=0;}else{digit1=l1.val;l1=l1.next;}
+            if(l2==null){digit2=0;}else{digit2=l2.val;l2=l2.next;}
+            sum=digit1+digit2+jin;
+            if(sum>9){jin=1;}else{jin=0;}
+            ListNode next=new ListNode(sum%10);
+            current.next=next;
+            current=current.next;
+        }
+        return head;
+    }
+}
+
+
+____________
+26. Remove Duplicates from Sorted Array
+Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+Do not allocate extra space for another array, you must do this in place with constant memory.
+For example,
+Given input array nums = [1,1,2],
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn't matter what you leave beyond the new length.
+____________
