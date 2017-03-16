@@ -4,15 +4,18 @@
 
 * first part
 
-3-6
-400/book/class
+    3-6
+    
+    400/book/class
 
 * second part
 
-7-9
-project/...
+    7-9
+    
+    project/...
 
 * last
 
-10-12
-...
+    10-12
+    
+    ...
