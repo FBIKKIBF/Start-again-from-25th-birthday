@@ -2,17 +2,17 @@
 
 
 
-*first part
+**first part
 
 3-6
 400/book/class
 
-*second part
+**second part
 
 7-9
 project/...
 
-*last
+**last
 
 10-12
 ...
