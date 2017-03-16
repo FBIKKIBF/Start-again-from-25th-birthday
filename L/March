@@ -228,4 +228,86 @@ public class Solution {
     }
 }
 
+________
+520. Detect Capital
+________
+
+public class Solution {
+    public boolean detectCapitalUse(String word) {
+        char c=word.charAt(0);
+        if(!Character.isLowerCase(c)){
+            //check if all or only first
+            if(word.length()<2){return true;}
+            c=word.charAt(1);
+            if(!Character.isLowerCase(c)){
+                //rest all capital letter
+                for(int i=1;i<word.length();i++){
+                    c=word.charAt(i);
+                    if(Character.isLowerCase(c)){
+                        return false;
+                    }
+                }
+                return true;
+            }else{
+                //rest all small letter
+                for(int i=1;i<word.length();i++){
+                    c=word.charAt(i);
+                    if(!Character.isLowerCase(c)){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }else{
+            for(int i=0;i<word.length();i++){
+                c=word.charAt(i);
+                if(!Character.isLowerCase(c)){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        
+        
+    }
+}
+_____
+104. Maximum Depth of Binary Tree
+_____
+public int maxDepth(TreeNode root) {
+        if(root==null){return 0;}
+        return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
+
+
+    }
+    并且不知道为什么 
+    public int maxDepth(TreeNode root) {
+        if(root==null){return 0;}
+
+        int left_dep=0,right_dep=0;
+        if(root.left!=null){left_dep=maxDepth(root.left);}
+        if(root.right!=null){left_dep=maxDepth(root.right);}
+        return Math.max(left_dep,right_dep)+1;
+
+
+    }
+    并不 work。。。。
+    
+————————
+226. Invert Binary Tree
+
+发现reucrsive是tree的好方法
+——————————
+public TreeNode invertTree(TreeNode root) {
+        if(root==null){return null;}
+        TreeNode temp=root.left;
+        root.left=invertTree(root.right);
+        root.right=invertTree(temp);
+        return root;
+    }
+________
+260. Single Number III
+
+————————————
 
