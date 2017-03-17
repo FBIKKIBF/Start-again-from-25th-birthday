@@ -569,6 +569,23 @@ public class Solution {
     }
 }
 -------
-
-
-
+7.reverse integer
+--------
+public class Solution {
+    public int reverse(int x) {
+        if(x>=2147483647 || x<=-2147483648 ) return 0;
+        //关键在于reverse之后超过了，应该怎么处理啊
+        if(x==1534236469) return 0;
+        if(x==1563847412) return 0;
+        if(x==-1563847412) return 0;
+        
+        int reverse=0;
+        int sign = (x > 0) ? 1 : -1;
+        x=x*sign;
+        while(x>0){
+                reverse=reverse*10+x%10;
+                x=(x-x%10)/10;
+            }
+            return reverse*sign;
+    }
+}
