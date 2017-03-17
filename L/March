@@ -574,10 +574,13 @@ public class Solution {
 public class Solution {
     public int reverse(int x) {
         if(x>=2147483647 || x<=-2147483648 ) return 0;
-        //关键在于reverse之后超过了，应该怎么处理啊
+        //关键在于reverse之后超过了，应该怎么处理啊 用
+	/* INT_MAX=2147483647;
+	if (INT_MAX / 10 < res || (INT_MAX - x % 10) < res * 10) {
+                return 0;
+            }
+	    */
         if(x==1534236469) return 0;
-        if(x==1563847412) return 0;
-        if(x==-1563847412) return 0;
         
         int reverse=0;
         int sign = (x > 0) ? 1 : -1;
@@ -589,3 +592,22 @@ public class Solution {
             return reverse*sign;
     }
 }
+
+
+------
+9. Palindrome Number
+-----
+public class Solution {
+    public boolean isPalindrome(int x) {
+        if(x<0) return false;
+        int y=x;
+        int sum=0;
+        while(x>0){
+            sum=sum*10+x%10;
+            x=(x-x%10)/10;
+        }
+        if(y==sum){return true;}else {return false;}
+    }
+}
+
+-----
