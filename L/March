@@ -547,4 +547,28 @@ public class Solution {
 
 
 ------
+202.happy number
+------
+public class Solution {
+    public boolean isHappy(int n) {
+        if(n==1)return true;
+        int sum=0;
+        int ite=1;
+        while(n!=1){
+            while(n>0){
+            ite++;
+            sum=sum+(n%10)*(n%10);
+            n=(n-n%10)/10;
+            }
+            ite++;
+            n=sum;
+            sum=0;
+            if(n==1){return true;}
+            if(ite>30){return false;}
+        }return true;
+    }
+}
+-------
+
+
 
