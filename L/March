@@ -652,3 +652,30 @@ public class Solution {
         return index;
     }
 }
+
+
+-----
+24. Swap Nodes in Pairs
+画图！看男票的图，发现我link来link去，死循环了，把后半部分丢了
+------
+public class Solution {
+    public static ListNode swapPairs(ListNode head) {
+        if(head==null) return null;
+        if(head.next==null) return head;
+        //画图！看男票的图，发现我link来link去，死循环了，把后半部分丢了
+        ListNode dummy=new ListNode(0);
+        dummy.next=head;
+        ListNode tail=dummy;
+        while(tail.next!=null && tail.next.next!=null){
+            ListNode first=tail.next;
+            ListNode second=tail.next.next;
+            first.next=second.next;
+            tail.next=second;
+            second.next=first;
+            tail=first;
+        }
+        return dummy.next;
+    }
+}
+
+-----
