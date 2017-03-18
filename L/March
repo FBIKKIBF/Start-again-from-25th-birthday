@@ -679,3 +679,12 @@ public class Solution {
 }
 
 -----
+237. delete node不加点，改来改去都是白盖
+－－－－－
+public class Solution {
+    public void deleteNode(ListNode node) {
+        node.val=node.next.val;
+        node.next=node.next.next;
+        //node=node.next
+    }
+}
