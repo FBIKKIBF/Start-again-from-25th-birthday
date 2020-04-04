@@ -8,7 +8,7 @@ import java.util.LinkedList;
 /**
  * Created by HelenHan on 3/6/20.
  */
-public class Solution1 {
+public class Solution {
 
     public static int[] solve(int[][] matrix, int N) {
         if (matrix == null || N < 2 || matrix.length != N || matrix[0].length != N)
@@ -29,7 +29,6 @@ public class Solution1 {
             Col.add((HashSet<Integer>) set.clone());
         }
         for (int i = 0; i < N; i++) {
-            int rowSum = 0;
             for (int j = 0; j < N; j++) {
                 if (i == j) k += matrix[i][j];
                 if (Row.get(i).contains(matrix[i][j]))
@@ -37,7 +36,6 @@ public class Solution1 {
                 if (Col.get(j).contains(matrix[i][j]))
                     Col.get(j).remove(matrix[i][j]);
             }
-            if (rowSum != sum) r++;
         }
         for (int i = 0; i < N; i++) {
             if (!Row.get(i).isEmpty()) r++;
