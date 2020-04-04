@@ -8,7 +8,7 @@ import java.util.LinkedList;
 /**
  * Created by HelenHan on 3/6/20.
  */
-public class Solution {
+public class Solution1 {
 
     public static int[] solve(int[][] matrix, int N) {
         if (matrix == null || N < 2 || matrix.length != N || matrix[0].length != N)
