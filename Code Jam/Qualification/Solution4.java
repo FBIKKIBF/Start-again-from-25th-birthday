@@ -1,34 +1,38 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-
+import java.util.Scanner;
 
 /**
  * Created by HelenHan on 3/6/20.
- * do not know how to do the interactive work, and how to design the algo
  */
 public class Solution {
-
-
-    public static String solve() {
-        return "";
+    public static boolean solve(int B, Scanner input) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= B; i++) {
+            System.out.println(i);
+            String s = input.next();
+            if (s.equals("N")) {
+                return false;
+            } else  {
+                sb.append(s);
+            }
+        }
+        System.out.println(sb.toString());
+        String response = input.next();
+        return true;
     }
-
 
     public static void main(String[] args) throws IOException {
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String[] t = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
-        int T = Integer.parseInt(t[0]);
-        int B = Integer.parseInt(t[1]);
+        Scanner input = new Scanner(System.in);
+        int T = input.nextInt();
+        int B = input.nextInt();
 
         for (int j = 1; j <= T; j++) {
-            char c = (char) bufferedReader.read();
-            String answer = solve();
-            System.out.println(answer);
+            boolean result = solve(B, input);
+            if (result) continue;
+            else break;
         }
+        input.close();
 
-        bufferedReader.close();
     }
 }
-
