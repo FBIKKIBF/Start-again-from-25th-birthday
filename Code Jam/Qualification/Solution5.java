@@ -48,7 +48,7 @@ public class Solution {
         boolean possible  = helper(N, K, candidate);
 
         if(N<=5){
-
+            //helper function would do the work
         }else{
             //give it a try for 10000000 times
             int limit = 10000000;
